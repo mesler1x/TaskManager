@@ -26,9 +26,11 @@ import java.util.*;
 public class UserEntity extends BaseDomainEntity implements UserDetails {
     String username;
     String password;
+
     @Type(JsonType.class)
     @Column(columnDefinition = "jsonb")
     Set<UserRole> authorities;
+
     @OneToMany(mappedBy = "user")
     List<TaskEntity> tasks;
     boolean accountNonExpired;
